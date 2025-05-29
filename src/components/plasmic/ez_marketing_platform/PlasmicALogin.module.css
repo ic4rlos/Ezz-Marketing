@@ -1,0 +1,311 @@
+.root {
+  display: grid;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: #d9d9d9;
+  align-content: flex-start;
+  justify-items: center;
+  cursor: auto;
+  min-width: 0;
+  min-height: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.root > * {
+  grid-column: 4;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .root > * {
+    grid-column: 4;
+  }
+}
+.img {
+  object-fit: cover;
+  max-width: auto;
+  height: 68px;
+  width: 502px;
+  position: absolute;
+  left: 151px;
+  top: 100px;
+  margin: auto;
+}
+.img > picture > img {
+  object-fit: cover;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.rectangle {
+  display: flex;
+  width: var(--plsmc-standard-width);
+  height: 547px;
+  background: #ffffff;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 0px;
+  top: 239px;
+  min-width: 0;
+  border-radius: 51px;
+  padding: 100px;
+  margin: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .rectangle {
+    margin-bottom: 0px;
+    height: 341px;
+    margin-right: 0px;
+    width: 375px;
+    border-radius: 48px;
+    padding: 48px;
+  }
+}
+.text__oj4Zb {
+  position: relative;
+  width: 608px;
+  height: auto;
+  max-width: 70%;
+  color: #000000;
+  left: auto;
+  top: auto;
+}
+.h6 {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+.freeBox__ijTjq {
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+  position: relative;
+  left: auto;
+  top: auto;
+  width: auto;
+  justify-content: center;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ijTjq {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.svg__hS4 {
+  object-fit: cover;
+  max-width: 100%;
+  color: #000000;
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .svg__hS4 {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.emailInput__mvTgd:global(.__wab_instance) {
+  max-width: 100%;
+  width: 413px;
+  height: 34px;
+  flex-grow: 0;
+  align-self: auto;
+  left: auto;
+  top: auto;
+  position: relative;
+  flex-shrink: 0;
+}
+.svg__boSv9 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__vTgu9 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.freeBox___6Vnje {
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+  position: relative;
+  left: auto;
+  top: auto;
+  justify-content: center;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___6Vnje {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.svg___04EOe {
+  object-fit: cover;
+  max-width: 100%;
+  color: #000000;
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .svg___04EOe {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.slotTargetPasswordInput4 {
+  line-height: 0;
+}
+.passwordInput__cMyA0:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 412px;
+  flex-shrink: 0;
+}
+.link__kU5Nm {
+  color: #545454;
+  align-self: flex-end;
+  font-size: 14px;
+  position: relative;
+  left: auto;
+  top: auto;
+  height: 17px;
+  flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .link__kU5Nm {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.loginButton:global(.__wab_instance) {
+  max-width: 100%;
+  width: 248px;
+  height: 37px;
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .loginButton:global(.__wab_instance) {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.svg___2AQNk {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__x3UVt {
+  text-align: center;
+}
+.svg__a0WFt {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.signInWithGoogle:global(.__wab_instance) {
+  max-width: 100%;
+  width: 248px;
+  height: 37px;
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .signInWithGoogle:global(.__wab_instance) {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.svg___2EhOz {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__xsBun {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.createAccount {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 254px;
+  height: auto;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  padding: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .createAccount {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+}
+.text__txcLk {
+  width: 145px;
+  height: 17px;
+  max-width: 100%;
+  font-size: 14px;
+  color: #000000;
+  flex-shrink: 0;
+}
+.link__jwEo {
+  font-size: 14px;
+  color: #000000;
+  text-decoration-line: underline;
+  font-weight: 600;
+  padding-left: 4px;
+  cursor: pointer;
+}
+.root .link__jwEo:hover {
+  color: #a5e612;
+}
+.root .link__jwEo:active {
+  color: #228b22;
+  cursor: pointer;
+}
