@@ -3439,7 +3439,7 @@
     margin-top: 20px;
   }
 }
-.form:global(.__wab_instance) {
+.form2:global(.__wab_instance) {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -3451,15 +3451,15 @@
   object-fit: cover;
   flex-shrink: 0;
   min-height: 0;
-  padding: 16px;
+  padding: 8px;
 }
-.formField__oCiE:global(.__wab_instance) {
+.formField__wWuaa:global(.__wab_instance) {
   width: 100%;
   font-size: 24px;
   min-width: 0;
   margin: 0px;
 }
-.svg__oadJ0 {
+.svg__gkbDv {
   object-fit: cover;
   max-width: 100%;
   color: #000000;
@@ -3471,58 +3471,58 @@
   margin-right: 10px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .svg__oadJ0 {
+  .svg__gkbDv {
     position: relative;
     left: auto;
     top: auto;
   }
 }
-.textInput3:global(.__wab_instance) {
+.textInput5:global(.__wab_instance) {
   max-width: 100%;
   width: 500px;
   height: 70px;
 }
-.svg__qBl2I {
+.svg___0PEb {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg___9JjOn {
+.svg__ybOvt {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.formField__mQiPf:global(.__wab_instance) {
+.formField___7PsFc:global(.__wab_instance) {
   width: 100%;
   min-width: 0;
   margin: 0px;
 }
-.svg___7Kulh {
+.svg__vXvg6 {
   object-fit: cover;
   max-width: 100%;
   margin-right: 10px;
   height: 1em;
 }
-.textInput4:global(.__wab_instance) {
+.textInput6:global(.__wab_instance) {
   max-width: 100%;
   width: 500px;
   height: 70px;
 }
-.svg__yEOs {
+.svg__eyL0K {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__axvPc {
+.svg__dtovl {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.freeBox__eO1Tc {
+.freeBox__yQhzL {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -3537,22 +3537,22 @@
   margin: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__eO1Tc {
+  .freeBox__yQhzL {
     margin: 0px;
   }
 }
-.loginButton___4N7I:global(.__wab_instance) {
+.loginButton__tmHlF:global(.__wab_instance) {
   max-width: 100%;
   width: auto;
   height: auto;
 }
-.svg__rsA {
+.svg__aeeMe {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.text__eTf1C {
+.text__ylqI {
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
@@ -3567,7 +3567,7 @@
   text-decoration-line: none !important;
   text-overflow: clip !important;
 }
-.svg__cxC1Q {
+.svg__jvb0D {
   position: relative;
   object-fit: cover;
   width: auto;

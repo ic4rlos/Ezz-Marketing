@@ -25,7 +25,12 @@ import {
   useDollarState
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
-import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 import Navbar from "../../Navbar"; // plasmic-import: F8Hx3agbJ6RR/component
 import LoginButton from "../../LoginButton"; // plasmic-import: sda60oPQ2thQ/component
 import Section from "../../Section"; // plasmic-import: Ihhe5kgEE8NU/component
@@ -103,29 +108,29 @@ function PlasmicALandingPage__RenderFunc(props) {
   const stateSpecs = React.useMemo(
     () => [
       {
-        path: "form.value",
+        path: "form2.value",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-        refName: "form",
+        refName: "form2",
         onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
       },
       {
-        path: "form.isSubmitting",
+        path: "form2.isSubmitting",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false,
-        refName: "form",
+        refName: "form2",
         onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       },
       {
-        path: "textInput3.value",
+        path: "textInput5.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "textInput4.value",
+        path: "textInput6.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
@@ -140,6 +145,8 @@ function PlasmicALandingPage__RenderFunc(props) {
     $queries: $queries,
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
   const new$Queries = {
     query: usePlasmicDataOp(() => {
       return {
@@ -1798,12 +1805,12 @@ function PlasmicALandingPage__RenderFunc(props) {
               >
                 {(() => {
                   const child$Props = {
-                    className: classNames("__wab_instance", sty.form),
+                    className: classNames("__wab_instance", sty.form2),
                     extendedOnValuesChange: async (...eventArgs) => {
                       generateStateOnChangePropForCodeComponents(
                         $state,
                         "value",
-                        ["form", "value"],
+                        ["form2", "value"],
                         FormWrapper_Helpers
                       ).apply(null, eventArgs);
                     },
@@ -1816,25 +1823,68 @@ function PlasmicALandingPage__RenderFunc(props) {
                       }
                     ],
 
-                    labelAlign: "right",
                     labelCol: (() => {
-                      const __composite = { span: null, horizontalOnly: null };
+                      const __composite = { span: null, horizontalOnly: true };
                       __composite["span"] = 0;
-                      __composite["horizontalOnly"] = false;
                       return __composite;
                     })(),
                     layout: "horizontal",
                     mode: "advanced",
+                    onFinish: async values => {
+                      const $steps = {};
+                      $steps["defaultSubmit"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              dataOp: {
+                                sourceId: "tSBhJfs4LDomzTKjiMETbM",
+                                opId: "72f7ce11-95db-4da9-b914-de5a61eb67b5",
+                                userArgs: {
+                                  variables: [$state.form2.value]
+                                },
+                                cacheKey: null,
+                                invalidatedKeys: ["plasmic_refresh_all"],
+                                roleId: null
+                              }
+                            };
+                            return (async ({ dataOp, continueOnError }) => {
+                              try {
+                                const response = await executePlasmicDataOp(
+                                  dataOp,
+                                  {
+                                    userAuthToken:
+                                      dataSourcesCtx?.userAuthToken,
+                                    user: dataSourcesCtx?.user
+                                  }
+                                );
+                                await plasmicInvalidate(dataOp.invalidatedKeys);
+                                return response;
+                              } catch (e) {
+                                if (!continueOnError) {
+                                  throw e;
+                                }
+                                return e;
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["defaultSubmit"] != null &&
+                        typeof $steps["defaultSubmit"] === "object" &&
+                        typeof $steps["defaultSubmit"].then === "function"
+                      ) {
+                        $steps["defaultSubmit"] = await $steps["defaultSubmit"];
+                      }
+                    },
                     onIsSubmittingChange: async (...eventArgs) => {
                       generateStateOnChangePropForCodeComponents(
                         $state,
                         "isSubmitting",
-                        ["form", "isSubmitting"],
+                        ["form2", "isSubmitting"],
                         FormWrapper_Helpers
                       ).apply(null, eventArgs);
                     },
                     ref: ref => {
-                      $refs["form"] = ref;
+                      $refs["form2"] = ref;
                     },
                     submitSlot: null,
                     wrapperCol: (() => {
@@ -1848,11 +1898,11 @@ function PlasmicALandingPage__RenderFunc(props) {
                     [
                       {
                         name: "value",
-                        plasmicStateName: "form.value"
+                        plasmicStateName: "form2.value"
                       },
                       {
                         name: "isSubmitting",
-                        plasmicStateName: "form.isSubmitting"
+                        plasmicStateName: "form2.isSubmitting"
                       }
                     ],
 
@@ -1862,21 +1912,21 @@ function PlasmicALandingPage__RenderFunc(props) {
                   );
                   return (
                     <FormWrapper
-                      data-plasmic-name={"form"}
-                      data-plasmic-override={overrides.form}
+                      data-plasmic-name={"form2"}
+                      data-plasmic-override={overrides.form2}
                       {...child$Props}
                     >
                       <FormItemWrapper
                         className={classNames(
                           "__wab_instance",
-                          sty.formField__oCiE
+                          sty.formField__wWuaa
                         )}
                         initialValue={undefined}
                         label={
                           <_4654364831553230929SvgIcon
                             className={classNames(
                               projectcss.all,
-                              sty.svg__oadJ0
+                              sty.svg__gkbDv
                             )}
                             role={"img"}
                           />
@@ -1884,16 +1934,16 @@ function PlasmicALandingPage__RenderFunc(props) {
                         name={"email"}
                       >
                         <EmailInput
-                          data-plasmic-name={"textInput3"}
-                          data-plasmic-override={overrides.textInput3}
+                          data-plasmic-name={"textInput5"}
+                          data-plasmic-override={overrides.textInput5}
                           className={classNames(
                             "__wab_instance",
-                            sty.textInput3
+                            sty.textInput5
                           )}
                           onChange={async (...eventArgs) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
-                                "textInput3",
+                                "textInput5",
                                 "value"
                               ])((e => e.target?.value).apply(null, eventArgs));
                             }).apply(null, eventArgs);
@@ -1908,7 +1958,7 @@ function PlasmicALandingPage__RenderFunc(props) {
                           string={"Fill your email address"}
                           value={
                             generateStateValueProp($state, [
-                              "textInput3",
+                              "textInput5",
                               "value"
                             ]) ?? ""
                           }
@@ -1917,14 +1967,14 @@ function PlasmicALandingPage__RenderFunc(props) {
                       <FormItemWrapper
                         className={classNames(
                           "__wab_instance",
-                          sty.formField__mQiPf
+                          sty.formField___7PsFc
                         )}
                         initialValue={undefined}
                         label={
                           <LinkedinSvgIcon
                             className={classNames(
                               projectcss.all,
-                              sty.svg___7Kulh
+                              sty.svg__vXvg6
                             )}
                             role={"img"}
                           />
@@ -1932,16 +1982,16 @@ function PlasmicALandingPage__RenderFunc(props) {
                         name={"LinkedIn"}
                       >
                         <EmailInput
-                          data-plasmic-name={"textInput4"}
-                          data-plasmic-override={overrides.textInput4}
+                          data-plasmic-name={"textInput6"}
+                          data-plasmic-override={overrides.textInput6}
                           className={classNames(
                             "__wab_instance",
-                            sty.textInput4
+                            sty.textInput6
                           )}
                           onChange={async (...eventArgs) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
-                                "textInput4",
+                                "textInput6",
                                 "value"
                               ])((e => e.target?.value).apply(null, eventArgs));
                             }).apply(null, eventArgs);
@@ -1956,7 +2006,7 @@ function PlasmicALandingPage__RenderFunc(props) {
                           string={"Fill your LinkedIn profile"}
                           value={
                             generateStateValueProp($state, [
-                              "textInput4",
+                              "textInput6",
                               "value"
                             ]) ?? ""
                           }
@@ -1965,19 +2015,19 @@ function PlasmicALandingPage__RenderFunc(props) {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__eO1Tc
+                          sty.freeBox__yQhzL
                         )}
                       >
                         <LoginButton
                           className={classNames(
                             "__wab_instance",
-                            sty.loginButton___4N7I
+                            sty.loginButton__tmHlF
                           )}
                           endIcon={
                             <ChevronRightIcon
                               className={classNames(
                                 projectcss.all,
-                                sty.svg__cxC1Q
+                                sty.svg__jvb0D
                               )}
                               role={"img"}
                             />
@@ -1989,7 +2039,7 @@ function PlasmicALandingPage__RenderFunc(props) {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__eTf1C
+                              sty.text__ylqI
                             )}
                           >
                             {"Get in wait list"}
@@ -2051,9 +2101,9 @@ const PlasmicDescendants = {
     "beneficiosEFuncionalidades",
     "talvezSejaUtil",
     "callToAction",
-    "form",
-    "textInput3",
-    "textInput4",
+    "form2",
+    "textInput5",
+    "textInput6",
     "embedHtml",
     "footerSection"
   ],
@@ -2066,15 +2116,15 @@ const PlasmicDescendants = {
   talvezSejaUtil: ["talvezSejaUtil"],
   callToAction: [
     "callToAction",
-    "form",
-    "textInput3",
-    "textInput4",
+    "form2",
+    "textInput5",
+    "textInput6",
     "embedHtml"
   ],
 
-  form: ["form", "textInput3", "textInput4", "embedHtml"],
-  textInput3: ["textInput3"],
-  textInput4: ["textInput4"],
+  form2: ["form2", "textInput5", "textInput6", "embedHtml"],
+  textInput5: ["textInput5"],
+  textInput6: ["textInput6"],
   embedHtml: ["embedHtml"],
   footerSection: ["footerSection"]
 };
@@ -2118,9 +2168,9 @@ export const PlasmicALandingPage = Object.assign(
     beneficiosEFuncionalidades: makeNodeComponent("beneficiosEFuncionalidades"),
     talvezSejaUtil: makeNodeComponent("talvezSejaUtil"),
     callToAction: makeNodeComponent("callToAction"),
-    form: makeNodeComponent("form"),
-    textInput3: makeNodeComponent("textInput3"),
-    textInput4: makeNodeComponent("textInput4"),
+    form2: makeNodeComponent("form2"),
+    textInput5: makeNodeComponent("textInput5"),
+    textInput6: makeNodeComponent("textInput6"),
     embedHtml: makeNodeComponent("embedHtml"),
     footerSection: makeNodeComponent("footerSection"),
     // Metadata about props expected for PlasmicALandingPage
